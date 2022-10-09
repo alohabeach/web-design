@@ -1,9 +1,10 @@
 extends layout
 
 block content
-    link(rel="stylesheet", href="/stylesheets/cadillac.css")
+    link(rel="stylesheet", href="/stylesheets/listening-party.css")
     .container1
         button.btn Click me n-
-    video#vid(loop playsinline preload="metadata" style="display:none")
-        source(src='/videos/MORGENSHTERN - Cadillac.mp4')
-    script(src="/javascripts/cadillac.js")
+    .video-wrapper
+        video#vid(loop playsinline preload="metadata" style="display:none")
+            source(src='/videos/MORGENSHTERN - Cadillac.mp4')
+    script(src="/javascripts/listening-party.js")
