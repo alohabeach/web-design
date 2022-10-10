@@ -280,6 +280,6 @@ const searchSong = async _ => {
 };
 
 searchBtn.addEventListener('click', searchSong);
-document.addEventListener('keydown', (key) => {
+searchInput.addEventListener('keydown', (key) => {
     if (key.code == 'Enter') searchSong();
 });
