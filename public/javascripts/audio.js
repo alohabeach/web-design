@@ -5,7 +5,7 @@ const controls = document.getElementById('controls');
 const bg = document.getElementById('bg');
 const trackBG = document.getElementById('trackBG');
 const songElement = document.getElementById('song');
-const artistElement = document.getElementById('artist');
+const artistContainer = document.getElementById('artists');
 const albumElement = document.getElementById('album');
 
 const searchInput = document.getElementById('searchInput');
@@ -28,8 +28,6 @@ class AudioVisualizer {
         this.audio = this._newAudio();
         this.analyser = this._newAnalyser(this.audio);
         songElement.textContent = '--';
-        artistElement.textContent = '';
-        albumElement.textContent = '';
 
         window.addEventListener('beforeunload', (e) => {
             if (this.audio.src.length > 0) {
@@ -103,13 +101,20 @@ class AudioVisualizer {
                 songElement.href = songInfo.songUrl;
 
                 for (let i = 0; i < songInfo.artistsInfo.length; i++) {
+                    const artistElement = document.createElement('a');
+                    artistElement.setAttribute('target', '_blank');
+                    artistElement.setAttribute('rel', 'noopener noreferrer');
+                    artistElement.setAttribute('id', 'artist');
+
                     artistElement.textContent += songInfo.artistsInfo[i].name
+                    artistElement.href = songInfo.artistsInfo[i].url;
 
                     if (i < songInfo.artistsInfo.length - 1) {
                         artistElement.textContent += ', ';
                     }
+
+                    artistContainer.appendChild(artistElement);
                 }
-                artistElement.href = songInfo.artistsInfo[0].url;
 
                 albumElement.textContent = `${songInfo.albumName} • ${songInfo.releaseYear}`;
                 albumElement.href = songInfo.albumUrl;
@@ -262,9 +267,14 @@ const searchSong = async _ => {
 
     try {
         songElement.textContent = 'Loading...';
-        songElement.href = '';
-        artistElement.textContent = '';
-        artistElement.href = '';
+        songElement.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+
+        let artistElement = artistContainer.firstElementChild;
+        while (artistElement) {
+            artistElement.remove();
+            artistElement = artistContainer.firstElementChild;
+        }
+
         albumElement.textContent = '';
         albumElement.href = '';
 

@@ -50,17 +50,18 @@
     filter: drop-shadow(0 5mm 4mm black);
 }
 
+a {
+    text-decoration: none;
+}
+
 #song {
     color: #fff;
-    text-decoration: none;
 }
 
 #artist {
     color: #ababab;
-    text-decoration: none;
 }
 
 #album {
     color: #808080;
-    text-decoration: none;
 }
