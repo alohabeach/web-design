@@ -12,11 +12,13 @@ const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const beginBtn = document.getElementById('beginBtn');
 
-const holdWidth = $(window).width();
-window.addEventListener('resize', _ => {
-    const newPercentage = (($(window).width() / holdWidth) * 100) + '%';
-    $('html').css('font-size', newPercentage);
-});
+const fixFont = _ => {
+    const newPercentage = (($(window).width() / 1920) * 100) + '%';
+    $('#controls').css('font-size', newPercentage);
+};
+
+fixFont();
+window.addEventListener('resize', fixFont);
 
 class AudioVisualizer {
     constructor() {
