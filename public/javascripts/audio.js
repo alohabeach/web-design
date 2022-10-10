@@ -259,7 +259,7 @@ const searchSong = async _ => {
         artistElement.href = '';
         albumElement.textContent = '';
         albumElement.href = '';
-        
+
         const params = new URLSearchParams({ q: searchInput.value });
         const response = await fetch('/audio/api/search?' + params);
         const songInfo = await response.json();
