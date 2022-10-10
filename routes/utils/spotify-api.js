@@ -189,11 +189,6 @@ module.exports = class Spotify {
         // get rid of features in the title
         let fixedName = name.replace(/ *\([^)]*\) */g, '');
 
-        // make sure the length of the title isn't too big
-        if (fixedName.length > 16) {
-            fixedName = fixedName.substring(0, 13) + '...';
-        }
-
         return fixedName;
     }
 }
