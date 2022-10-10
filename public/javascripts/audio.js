@@ -19,9 +19,9 @@ class AudioVisualizer {
         this.ctx = ctx;
         this.audio = this._newAudio();
         this.analyser = this._newAnalyser(this.audio);
-        songElement.innerHTML = '--';
-        artistElement.innerHTML = '';
-        albumElement.innerHTML = '';
+        songElement.textContent = '--';
+        artistElement.textContent = '';
+        albumElement.textContent = '';
 
         window.addEventListener('beforeunload', (e) => {
             if (this.audio.src.length > 0) {
@@ -32,11 +32,11 @@ class AudioVisualizer {
 
     _error(songInfo) {
         setTimeout(_ => {
-            songElement.innerHTML = songInfo.songName;
+            songElement.textContent = songInfo.songName;
             songElement.href = songInfo.songUrl; 
         }, 3000);
 
-        songElement.innerHTML = 'Error!';
+        songElement.textContent = 'Error!';
     }
 
     _unload(source) {
@@ -54,11 +54,11 @@ class AudioVisualizer {
     load(songInfo) {
         return new Promise(async (resolve, reject) => {
             try {
-                songElement.innerHTML = 'Loading...';
+                songElement.textContent = 'Loading...';
                 songElement.href = '';
-                artistElement.innerHTML = '';
+                artistElement.textContent = '';
                 artistElement.href = '';
-                albumElement.innerHTML = '';
+                albumElement.textContent = '';
                 albumElement.href = '';
 
                 if (this.audio.src.length > 0) {
@@ -98,19 +98,19 @@ class AudioVisualizer {
                     $('#trackBG').fadeTo(500, 1);
                 }, 400);
 
-                songElement.innerHTML = songInfo.songName;
+                songElement.textContent = songInfo.songName;
                 songElement.href = songInfo.songUrl;
                 
                 for (let i = 0; i < songInfo.artistsInfo.length; i++) {
-                    artistElement.innerHTML += songInfo.artistsInfo[i].name
+                    artistElement.textContent += songInfo.artistsInfo[i].name
                     
                     if (i < songInfo.artistsInfo.length - 1) {
-                        artistElement.innerHTML += ', ';
+                        artistElement.textContent += ', ';
                     }
                 }
                 artistElement.href = songInfo.artistsInfo[0].url;
 
-                albumElement.innerHTML = `${songInfo.albumName} • ${songInfo.releaseYear}`;
+                albumElement.textContent = `${songInfo.albumName} • ${songInfo.releaseYear}`;
                 albumElement.href = songInfo.albumUrl;
 
                 resolve();
