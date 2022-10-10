@@ -97,7 +97,7 @@ class AudioVisualizer {
                     trackBG.src = songInfo.coverUrl;
                     $('#bg').fadeTo(500, 1);
                     $('#trackBG').fadeTo(500, 1);
-                }, 400);
+                }, 500);
 
                 songElement.textContent = songInfo.songName;
                 songElement.href = songInfo.songUrl;
