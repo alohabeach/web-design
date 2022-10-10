@@ -61,7 +61,7 @@ module.exports = class Spotify {
             const params = new URLSearchParams({
                 q: query,
                 type: ['track'],
-                market: 'ES',
+                market: 'US',
                 limit: limit,
                 offset: 0,
             });
