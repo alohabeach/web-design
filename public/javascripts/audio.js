@@ -33,7 +33,7 @@ class AudioVisualizer {
     _error(songInfo) {
         setTimeout(_ => {
             songElement.textContent = songInfo.songName;
-            songElement.href = songInfo.songUrl; 
+            songElement.href = songInfo.songUrl;
         }, 3000);
 
         songElement.textContent = 'Error!';
@@ -54,13 +54,6 @@ class AudioVisualizer {
     load(songInfo) {
         return new Promise(async (resolve, reject) => {
             try {
-                songElement.textContent = 'Loading...';
-                songElement.href = '';
-                artistElement.textContent = '';
-                artistElement.href = '';
-                albumElement.textContent = '';
-                albumElement.href = '';
-
                 if (this.audio.src.length > 0) {
                     this._unload(this.audio.src);
                 }
@@ -100,10 +93,10 @@ class AudioVisualizer {
 
                 songElement.textContent = songInfo.songName;
                 songElement.href = songInfo.songUrl;
-                
+
                 for (let i = 0; i < songInfo.artistsInfo.length; i++) {
                     artistElement.textContent += songInfo.artistsInfo[i].name
-                    
+
                     if (i < songInfo.artistsInfo.length - 1) {
                         artistElement.textContent += ', ';
                     }
@@ -260,6 +253,13 @@ const searchSong = async _ => {
     debounce = true;
 
     try {
+        songElement.textContent = 'Loading...';
+        songElement.href = '';
+        artistElement.textContent = '';
+        artistElement.href = '';
+        albumElement.textContent = '';
+        albumElement.href = '';
+        
         const params = new URLSearchParams({ q: searchInput.value });
         const response = await fetch('/audio/api/search?' + params);
         const songInfo = await response.json();
