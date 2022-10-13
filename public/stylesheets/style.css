@@ -31,6 +31,15 @@ a {
     justify-content: center;
 }
 
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 5;
+}
+
 .input::-webkit-inner-spin-button,
 .input::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -131,4 +140,29 @@ a {
 
 #canvas {
     margin-top: 100px;
+}
+
+.space-top {
+    margin-top: 10px;
+}
+
+.space-right {
+    margin-right: 10px;
+}
+
+.space-bottom {
+    margin-bottom: 10px;
+}
+
+.space-left {
+    margin-left: 10px;
+}
+
+.no-touch {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
