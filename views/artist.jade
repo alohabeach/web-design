@@ -1,0 +1,21 @@
+extends layout
+
+block content
+    link(rel="stylesheet", href="/stylesheets/artist.css")
+    h1 Save Your Favorite Music Artists
+    .container2
+        input.input.space-right(type="text" placeholder="Search an artist")
+        button.btn.space-left Search
+    .center
+        img#bg.no-touch(src="https://i.scdn.co/image/ab67616d00001e02cad190f1a73c024e5a40dddd")
+        h1
+            a#name(href="https://youtube.com/" target="_blank" rel="noopener noreferrer") Kanye West
+        h2 Popularity: 
+            span#popularity.fix-color 91 / 100
+        h2 Followers: 
+            span#followers.fix-color 18381792
+        h2
+            span.fix-color Genres: 
+            a#genres.fix-color(href="https://youtube.com/" target="_blank" rel="noopener noreferrer") Chicago rap
+            span.fix-color , 
+            a#genres.fix-color(href="https://youtube.com/" target="_blank" rel="noopener noreferrer") rap

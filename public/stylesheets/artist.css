@@ -1,0 +1,28 @@
+body {
+    overflow: hidden;
+}
+
+#bg {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: auto;
+    height: auto;
+    border-radius: 15px;
+    filter: drop-shadow(0 5mm 4mm black);
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#name {
+    color: #fff;
+}
+
+.fix-color {
+    color: inherit;
+}
