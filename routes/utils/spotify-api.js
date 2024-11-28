@@ -13,7 +13,7 @@ module.exports = class Spotify {
         this.ARTIST_URL = 'https://api.spotify.com/v1/artists';
         this.ACCESS_TOKEN_URL = 'https://accounts.spotify.com/api/token';
         this.BASE_YT_VIDEO_URL = 'http://www.youtube.com/watch?v=';
-        this.AUDIOS_PATH = path.resolve(__dirname, '../../public/audios/'); 
+        this.AUDIOS_PATH = path.resolve(__dirname, '../../public/audios/');
     }
 
     /**
